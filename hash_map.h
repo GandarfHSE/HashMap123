@@ -99,7 +99,7 @@ private:
             bonds.forward[pos] = pos_end;
             bonds.backward[pos_end] = pos;
         } else {
-            int last = bonds.backward[pos_end];
+            size_t last = bonds.backward[pos_end];
             bonds.forward[last] = pos;
             bonds.backward[pos] = last;
             bonds.forward[pos] = pos_end;
@@ -111,7 +111,7 @@ private:
         if (pos == pos_begin) {
             pos_begin = bonds.forward[pos];
         } else {
-            int prv = bonds.backward[pos], nxt = bonds.forward[pos];
+            size_t prv = bonds.backward[pos], nxt = bonds.forward[pos];
             bonds.forward[prv] = nxt;
             bonds.backward[nxt] = prv;
         }
